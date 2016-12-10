@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481390575
+timeCreated: 1481394724
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,8 +12,8 @@ TextureImporter:
     21300010: corner_left_top1
     21300012: wall_top1
     21300014: corner_right_top1
-    21300016: dungeon_sheet (1)_8
-    21300018: dungeon_sheet (1)_9
+    21300016: corner2_left_top1
+    21300018: corner2_right_top1
     21300020: dungeon_sheet (1)_10
     21300022: dungeon_sheet (1)_11
     21300024: dungeon_sheet (1)_12
@@ -36,8 +36,8 @@ TextureImporter:
     21300058: corner_left_top2
     21300060: wall_top2
     21300062: corner_right_top2
-    21300064: dungeon_sheet (1)_32
-    21300066: dungeon_sheet (1)_33
+    21300064: corner2_left_top2
+    21300066: corner2_right_top2
     21300068: dungeon_sheet (1)_34
     21300070: dungeon_sheet (1)_35
     21300072: dungeon_sheet (1)_36
@@ -60,8 +60,8 @@ TextureImporter:
     21300106: wall_left
     21300108: floor
     21300110: wall_right
-    21300112: dungeon_sheet (1)_56
-    21300114: dungeon_sheet (1)_57
+    21300112: corner2_left_bottom1
+    21300114: corner2_right_bottom1
     21300116: dungeon_sheet (1)_58
     21300118: dungeon_sheet (1)_59
     21300120: dungeon_sheet (1)_60
@@ -84,8 +84,8 @@ TextureImporter:
     21300154: corner_left_bottom
     21300156: wall_bottom
     21300158: corner_right_bottom
-    21300160: dungeon_sheet (1)_80
-    21300162: dungeon_sheet (1)_81
+    21300160: corner2_left_bottom2
+    21300162: corner2_right_bottom2
     21300164: dungeon_sheet (1)_82
     21300166: dungeon_sheet (1)_83
     21300168: dungeon_sheet (1)_84
@@ -454,7 +454,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_8
+      name: corner2_left_top1
       rect:
         serializedVersion: 2
         x: 128
@@ -467,7 +467,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_9
+      name: corner2_right_top1
       rect:
         serializedVersion: 2
         x: 144
@@ -766,7 +766,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_32
+      name: corner2_left_top2
       rect:
         serializedVersion: 2
         x: 128
@@ -779,7 +779,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_33
+      name: corner2_right_top2
       rect:
         serializedVersion: 2
         x: 144
@@ -1078,7 +1078,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_56
+      name: corner2_left_bottom1
       rect:
         serializedVersion: 2
         x: 128
@@ -1091,7 +1091,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_57
+      name: corner2_right_bottom1
       rect:
         serializedVersion: 2
         x: 144
@@ -1390,7 +1390,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_80
+      name: corner2_left_bottom2
       rect:
         serializedVersion: 2
         x: 128
@@ -1403,7 +1403,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_81
+      name: corner2_right_bottom2
       rect:
         serializedVersion: 2
         x: 144
