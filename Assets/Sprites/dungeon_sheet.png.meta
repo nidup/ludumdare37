@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481371085
+timeCreated: 1481379297
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -176,10 +176,10 @@ TextureImporter:
     21300338: dungeon_sheet (1)_169
     21300340: dungeon_sheet (1)_170
     21300342: dungeon_sheet (1)_171
-    21300344: dungeon_sheet (1)_172
-    21300346: dungeon_sheet (1)_173
-    21300348: dungeon_sheet (1)_174
-    21300350: dungeon_sheet (1)_175
+    21300344: door1
+    21300346: door2
+    21300348: door3
+    21300350: door4
     21300352: dungeon_sheet (1)_176
     21300354: dungeon_sheet (1)_177
     21300356: dungeon_sheet (1)_178
@@ -2586,7 +2586,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_172
+      name: door1
       rect:
         serializedVersion: 2
         x: 64
@@ -2599,7 +2599,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_173
+      name: door2
       rect:
         serializedVersion: 2
         x: 80
@@ -2612,7 +2612,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_174
+      name: door3
       rect:
         serializedVersion: 2
         x: 96
@@ -2625,7 +2625,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_175
+      name: door4
       rect:
         serializedVersion: 2
         x: 112

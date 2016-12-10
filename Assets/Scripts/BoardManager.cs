@@ -44,16 +44,24 @@ public class BoardManager : MonoBehaviour {
     {
 
         string[,] map = {
-             {"ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-2"},
-             {"ow-3","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-5"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10"},
+             {"ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-2"},
+             {"ow-3","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","do-0","ow-4","ow-4","ow-4","ow-4","ow-5"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10"},
         };
 
         rows = map.GetLength(0);
@@ -77,6 +85,10 @@ public class BoardManager : MonoBehaviour {
                     prefab = outerWallTiles[prefabIndex];
 					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
 					instance.transform.SetParent(boardHolder);
+                } else if (prefabType == "do") {
+                    prefab = exit;
+                    GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
+                    instance.transform.SetParent(boardHolder);
                 }
 			
                 //Debug.logger.Log(x.ToString()+y.ToString());
@@ -107,10 +119,10 @@ public class BoardManager : MonoBehaviour {
     {
         BoardSetup();
         InitializeList();
-        LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
-        LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
-        int enemyCount = (int) Mathf.Log(level, 2f);
-        LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-        Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
+        //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+        //LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
+        //int enemyCount = (int) Mathf.Log(level, 2f);
+        //LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+        //Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
     }
 }
