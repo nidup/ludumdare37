@@ -23,6 +23,7 @@ public class BoardManager : MonoBehaviour {
     public GameObject[] wallTiles;
     public GameObject[] foodTiles;
     public GameObject[] enemyTiles;
+	public GameObject[] heroTiles;
     public GameObject[] outerWallTiles;
 
     private Transform boardHolder;
@@ -122,7 +123,9 @@ public class BoardManager : MonoBehaviour {
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
         //LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
         //int enemyCount = (int) Mathf.Log(level, 2f);
-        //LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+		int enemyCount = 1;
+        LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+		LayoutObjectAtRandom(heroTiles, 1, 1);
         //Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
     }
 }

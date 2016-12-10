@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour {
     private GameObject levelImage;
     private int level = 1;
     private List<Enemy> enemies;
-    private bool enemiesMoving;
+	private List<Hero> heroes;
+	private bool enemiesMoving;
+	private bool heroesMoving;
     private bool doingSetup;
 
 	// Use this for initialization
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
         enemies = new List<Enemy>();
+		heroes = new List<Hero>();
 		boardScript = GetComponent<BoardManager>();
 		InitGame();
 	}
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour {
 	    Invoke("HideLevelImage", levelStartDelay);
 
 	    enemies.Clear();
+		heroes.Clear();
 	    boardScript.SetupScene(level);
 	}
 
@@ -67,7 +71,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        if (playersTurn || enemiesMoving || doingSetup) {
+		if (enemiesMoving || heroesMoving || doingSetup) {
             return;
         }
 
@@ -94,5 +98,27 @@ public class GameManager : MonoBehaviour {
 
 		playersTurn = true;
 		enemiesMoving = false;
+	}
+
+	public void AddHeroToList(Hero script)
+	{
+		heroes.Add(script);
+	}
+
+	IEnumerator MoveHeroes()
+	{
+		heroesMoving = true;
+		yield return new WaitForSeconds(turnDelay);
+		if (heroes.Count == 0) {
+			yield return new WaitForSeconds(turnDelay);
+		}
+
+		for (int i = 0; i < heroes.Count; i++) {
+			heroes[i].MoveHero();
+			yield return new WaitForSeconds(heroes[i].moveTime);
+		}
+
+		playersTurn = true;
+		heroesMoving = false;
 	}
 }
