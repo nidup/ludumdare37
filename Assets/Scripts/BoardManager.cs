@@ -55,6 +55,7 @@ public class BoardManager : MonoBehaviour {
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
              {"ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10"},
         };
+
         rows = map.GetLength(0);
         columns = map.GetLength(1);
 
@@ -66,16 +67,18 @@ public class BoardManager : MonoBehaviour {
                 string prefabType = tokens[0];
                 int prefabIndex = Int32.Parse(tokens[1]);
 
-                GameObject prefab = null;
+				GameObject floorPrefab = floorTiles[0];
+				GameObject instanceFloor = Instantiate(floorPrefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
+				instanceFloor.transform.SetParent(boardHolder);
+
+				GameObject prefab = null;
+
                 if (prefabType == "ow") {
                     prefab = outerWallTiles[prefabIndex];
-                } else if (prefabType == "fl") {
-                    prefab = floorTiles[prefabIndex];
+					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
+					instance.transform.SetParent(boardHolder);
                 }
-
-                GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
-                instance.transform.SetParent(boardHolder);
-
+			
                 //Debug.logger.Log(x.ToString()+y.ToString());
             }
         }
