@@ -126,8 +126,8 @@ public class BoardManager : MonoBehaviour {
 		int enemyCount = 0;
         LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 		Instantiate(heroTiles[0], new Vector3(8, 8, 0f), Quaternion.identity);
-		//Instantiate(heroTiles[0], new Vector3(5, 5, 0f), Quaternion.identity);
-		//Instantiate(heroTiles[0], new Vector3(3, 3, 0f), Quaternion.identity);
+		Instantiate(heroTiles[0], new Vector3(5, 5, 0f), Quaternion.identity);
+		Instantiate(heroTiles[0], new Vector3(3, 3, 0f), Quaternion.identity);
         //Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
     }
 }

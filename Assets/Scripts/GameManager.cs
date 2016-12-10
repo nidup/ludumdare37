@@ -72,7 +72,9 @@ public class GameManager : MonoBehaviour {
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			CastSpell (Input.mousePosition);
+			CastSpell (Input.mousePosition, "Attract");
+		} else if (Input.GetMouseButtonDown (1)) {
+			CastSpell (Input.mousePosition, "Repulse");
 		}
 
 		if (enemiesMoving || heroesMoving || doingSetup) {
@@ -127,7 +129,7 @@ public class GameManager : MonoBehaviour {
 		heroesMoving = false;
 	}
 
-	public void CastSpell(Vector3 spellPosition)
+	public void CastSpell(Vector3 spellPosition, string spellType)
 	{
 		spellPosition = Camera.main.ScreenToWorldPoint (spellPosition);
 		int spellDistance = 4;
@@ -143,7 +145,11 @@ public class GameManager : MonoBehaviour {
 			}
 
 			if (impactedHero) {
-				Debug.logger.Log(heroes[i].name + " IMPACTED");
+				if (spellType == "Attract") {
+					heroes [i].Attract (spellPosition);
+				} else if (spellType == "Repulse") {
+					heroes [i].Repulse (spellPosition);
+				}
 			}
 		}
 	}

@@ -36,6 +36,54 @@ public class Hero : MovingObject {
 		AttemptMove<Component>(xDir, yDir);
 	}
 
+	public void Attract(Vector3 spellPosition)
+	{
+		float xDistance = Mathf.Abs (spellPosition.x - transform.position.x);
+		float yDistance = Mathf.Abs (spellPosition.y - transform.position.y);
+		if (xDistance > yDistance) {
+			if (transform.position.x > spellPosition.x) {
+				orientation.x = -1;
+				orientation.y = 0;
+			} else {
+				orientation.x = 1;
+				orientation.y = 0;
+			}
+		} else {
+			if (transform.position.y > spellPosition.y) {
+				orientation.y = -1;
+				orientation.x = 0;
+			} else {
+				orientation.y = 1;
+				orientation.x = 0;
+			}
+		}
+	}
+
+
+	public void Repulse(Vector3 spellPosition)
+	{
+		float xDistance = Mathf.Abs (spellPosition.x - transform.position.x);
+		float yDistance = Mathf.Abs (spellPosition.y - transform.position.y);
+		if (xDistance > yDistance) {
+			if (transform.position.x > spellPosition.x) {
+				orientation.x = 1;
+				orientation.y = 0;
+			} else {
+				orientation.x = -1;
+				orientation.y = 0;
+			}
+		} else {
+			if (transform.position.y > spellPosition.y) {
+				orientation.y = 1;
+				orientation.x = 0;
+			} else {
+				orientation.y = -1;
+				orientation.x = 0;
+			}
+		}
+	}
+
+
 	protected override void OnCantMove <T> (T component)
 	{
 		Component hitObject = component as Component;
