@@ -16,9 +16,6 @@ public class BoardManager : MonoBehaviour {
 
         }
     }
-
-    public int columns = 8;
-    public int rows = 8;
     public Count wallCount = new Count(5, 9);
     public Count foodCount = new Count(1, 5);
     public GameObject exit;
@@ -30,6 +27,8 @@ public class BoardManager : MonoBehaviour {
 
     private Transform boardHolder;
     private List<Vector3> gridPositions = new List<Vector3>();
+    private int columns;
+    private int rows;
 
     void InitializeList()
     {
@@ -43,15 +42,41 @@ public class BoardManager : MonoBehaviour {
 
     void BoardSetup()
     {
+
+        string[,] map = {
+             {"ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-2"},
+             {"ow-3","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","ow-5"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10"},
+        };
+        rows = map.GetLength(0);
+        columns = map.GetLength(1);
+
         boardHolder = new GameObject("Board").transform;
-        for (int x = -1; x < columns + 1; x++) {
-            for (int y = -1; y < rows + 1; y++) {
-                GameObject toInstanciate = floorTiles[Random.Range(0, floorTiles.Length)];
-                if (x == -1 || x == columns || y == -1 || y == rows) {
-                    toInstanciate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+        for (int x = 0; x < columns; x++) {
+            for (int y = 0; y < rows; y++) {
+
+                string[] tokens = map[y, x].Split('-');
+                string prefabType = tokens[0];
+                int prefabIndex = Int32.Parse(tokens[1]);
+
+                GameObject prefab = null;
+                if (prefabType == "ow") {
+                    prefab = outerWallTiles[prefabIndex];
+                } else if (prefabType == "fl") {
+                    prefab = floorTiles[prefabIndex];
                 }
-                GameObject instance = Instantiate(toInstanciate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+
+                GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
                 instance.transform.SetParent(boardHolder);
+
+                //Debug.logger.Log(x.ToString()+y.ToString());
             }
         }
     }
@@ -83,6 +108,6 @@ public class BoardManager : MonoBehaviour {
         LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
         int enemyCount = (int) Mathf.Log(level, 2f);
         LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-        Instantiate(exit, new Vector3(columns - 1, rows -1, 0f), Quaternion.identity);
+        Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
     }
 }
