@@ -123,9 +123,9 @@ public class BoardManager : MonoBehaviour {
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
         //LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
         //int enemyCount = (int) Mathf.Log(level, 2f);
-		int enemyCount = 1;
+		int enemyCount = 0;
         LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-		LayoutObjectAtRandom(heroTiles, 1, 1);
+		Instantiate(heroTiles[0], new Vector3(8, 8, 0f), Quaternion.identity);
         //Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
     }
 }

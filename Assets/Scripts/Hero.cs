@@ -7,12 +7,13 @@ public class Hero : MovingObject {
 	public int playerDamage ;
 
 	private Animator animator;
-
+	private Vector3 orientation;
 
 	protected override void Start ()
 	{
 		GameManager.instance.AddHeroToList(this);
 		animator = GetComponent<Animator>();
+		orientation = new Vector3 (0, -1, 0f);
 		base.Start();
 	}
 
@@ -23,20 +24,30 @@ public class Hero : MovingObject {
 
 	public void MoveHero()
 	{
-		int xDir = 1;
+		int xDir = 0;
 		int yDir = 0;
-		/*if (Mathf.Abs(target.position.x - transform.position.x) < float.Epsilon) {
-			yDir = target.position.y > transform.position.y ? 1 : -1;
+
+		if (orientation.x != 0) {
+			xDir = (int) orientation.x;
 		} else {
-			xDir = target.position.x > transform.position.x ? 1 : -1;
-		}*/
-		AttemptMove<Player>(xDir, yDir);
+			yDir = (int) orientation.y;
+		}
+			
+		AttemptMove<Component>(xDir, yDir);
 	}
 
 	protected override void OnCantMove <T> (T component)
 	{
-		Player hitPlayer = component as Player;
-		animator.SetTrigger ("enemyAttack");
-		hitPlayer.LoseFood(playerDamage);
+		Component hitObject = component as Component;
+
+		if (hitObject.tag == "OuterWall") {
+			if (orientation.x != 0) {
+				orientation.x = 0;
+				orientation.y = Random.Range (0, 2) == 0 ? -1 : 1;
+			} else {
+				orientation.y = 0;
+				orientation.x = Random.Range (0, 2) == 0 ? -1 : 1;
+			}
+		}
 	}
 }
