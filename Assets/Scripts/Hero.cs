@@ -40,7 +40,7 @@ public class Hero : MovingObject {
 	{
 		Component hitObject = component as Component;
 
-		if (hitObject.tag == "OuterWall") {
+		if (hitObject.tag == "OuterWall" || hitObject.tag == "Hero") {
 			if (orientation.x != 0) {
 				orientation.x = 0;
 				orientation.y = Random.Range (0, 2) == 0 ? -1 : 1;

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481379297
+timeCreated: 1481390575
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -191,7 +191,7 @@ TextureImporter:
     21300368: dungeon_sheet (1)_184
     21300370: dungeon_sheet (1)_185
     21300372: dungeon_sheet (1)_186
-    21300374: dungeon_sheet (1)_187
+    21300374: knight_normal
     21300376: dungeon_sheet (1)_188
     21300378: dungeon_sheet (1)_189
     21300380: dungeon_sheet (1)_190
@@ -2781,7 +2781,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_187
+      name: knight_normal
       rect:
         serializedVersion: 2
         x: 304
