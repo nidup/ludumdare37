@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour {
         }
 
         StartCoroutine(MoveEnemies());
+		StartCoroutine(MoveHeroes());
 	}
 
 	public void AddEnemyToList(Enemy script)
