@@ -112,6 +112,12 @@ public class GameManager : MonoBehaviour {
 		heroes.Add(script);
 	}
 
+	public void RemoveHeroFromList(Hero script)
+	{
+		heroes.Remove (script);
+		Destroy (script.gameObject);
+	}
+
 	IEnumerator MoveHeroes()
 	{
 		heroesMoving = true;

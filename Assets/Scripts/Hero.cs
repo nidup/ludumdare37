@@ -6,13 +6,11 @@ public class Hero : MovingObject {
 
 	public int playerDamage ;
 
-	private Animator animator;
 	private Vector3 orientation;
 
 	protected override void Start ()
 	{
 		GameManager.instance.AddHeroToList(this);
-		animator = GetComponent<Animator>();
 		orientation = new Vector3 (0, -1, 0f);
 		base.Start();
 	}
@@ -20,6 +18,12 @@ public class Hero : MovingObject {
 	protected override void AttemptMove <T> (int xDir, int yDir)
 	{
 		base.AttemptMove<T>(xDir, yDir);
+	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		if (other.tag == "Exit") {
+			GameManager.instance.RemoveHeroFromList(this);
+		}
 	}
 
 	public void MoveHero()
@@ -62,6 +66,10 @@ public class Hero : MovingObject {
 
 	public void Repulse(Vector3 spellPosition)
 	{
+		GameObject text = transform.Find ("Text").gameObject;
+		SpriteText spriteText = text.GetComponent<SpriteText>();
+		spriteText.TempText("!", 1);
+		
 		float xDistance = Mathf.Abs (spellPosition.x - transform.position.x);
 		float yDistance = Mathf.Abs (spellPosition.y - transform.position.y);
 		if (xDistance > yDistance) {
@@ -82,8 +90,7 @@ public class Hero : MovingObject {
 			}
 		}
 	}
-
-
+		
 	protected override void OnCantMove <T> (T component)
 	{
 		Component hitObject = component as Component;
