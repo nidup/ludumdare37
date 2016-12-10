@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481394724
+timeCreated: 1481411117
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,7 +29,7 @@ TextureImporter:
     21300044: dungeon_sheet (1)_22
     21300046: dungeon_sheet (1)_23
     21300048: dungeon_sheet (1)_24
-    21300050: dungeon_sheet (1)_25
+    21300050: void
     21300052: dungeon_sheet (1)_26
     21300054: dungeon_sheet (1)_27
     21300056: dungeon_sheet (1)_28
@@ -675,7 +675,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_25
+      name: void
       rect:
         serializedVersion: 2
         x: 16
