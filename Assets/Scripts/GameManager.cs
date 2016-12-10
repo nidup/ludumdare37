@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		if (Input.GetMouseButtonDown (0)) {
+			CastSpell (Input.mousePosition);
+		}
+
 		if (enemiesMoving || heroesMoving || doingSetup) {
             return;
         }
@@ -121,5 +125,26 @@ public class GameManager : MonoBehaviour {
 
 		playersTurn = true;
 		heroesMoving = false;
+	}
+
+	public void CastSpell(Vector3 spellPosition)
+	{
+		spellPosition = Camera.main.ScreenToWorldPoint (spellPosition);
+		int spellDistance = 4;
+
+		for (int i = 0; i < heroes.Count; i++) {
+			bool impactedHero = false;
+
+			if (
+				Mathf.Abs(spellPosition.x - heroes[i].transform.position.x) < spellDistance &&
+				Mathf.Abs(spellPosition.y - heroes[i].transform.position.y) < spellDistance
+			) {
+				impactedHero = true;
+			}
+
+			if (impactedHero) {
+				Debug.logger.Log(heroes[i].name + " IMPACTED");
+			}
+		}
 	}
 }
