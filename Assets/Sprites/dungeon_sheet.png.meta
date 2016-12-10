@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481411117
+timeCreated: 1481412332
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -78,7 +78,7 @@ TextureImporter:
     21300142: dungeon_sheet (1)_71
     21300144: dungeon_sheet (1)_72
     21300146: dungeon_sheet (1)_73
-    21300148: dungeon_sheet (1)_74
+    21300148: column_top
     21300150: dungeon_sheet (1)_75
     21300152: dungeon_sheet (1)_76
     21300154: corner_left_bottom
@@ -102,7 +102,7 @@ TextureImporter:
     21300190: dungeon_sheet (1)_95
     21300192: dungeon_sheet (1)_96
     21300194: dungeon_sheet (1)_97
-    21300196: dungeon_sheet (1)_98
+    21300196: column_bottom
     21300198: dungeon_sheet (1)_99
     21300200: dungeon_sheet (1)_100
     21300202: dungeon_sheet (1)_101
@@ -172,10 +172,10 @@ TextureImporter:
     21300330: dungeon_sheet (1)_165
     21300332: dungeon_sheet (1)_166
     21300334: dungeon_sheet (1)_167
-    21300336: dungeon_sheet (1)_168
-    21300338: dungeon_sheet (1)_169
-    21300340: dungeon_sheet (1)_170
-    21300342: dungeon_sheet (1)_171
+    21300336: wall_button_1
+    21300338: wall_button_2
+    21300340: wall_button_3
+    21300342: wall_button_0
     21300344: door1
     21300346: door2
     21300348: door3
@@ -244,6 +244,7 @@ TextureImporter:
     21300474: dungeon_sheet (1)_237
     21300476: dungeon_sheet (1)_238
     21300478: dungeon_sheet (1)_239
+    21300480: void
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -1312,7 +1313,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_74
+      name: column_top
       rect:
         serializedVersion: 2
         x: 32
@@ -1624,7 +1625,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_98
+      name: column_bottom
       rect:
         serializedVersion: 2
         x: 32
@@ -2534,7 +2535,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_168
+      name: wall_button_1
       rect:
         serializedVersion: 2
         x: 0
@@ -2547,7 +2548,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_169
+      name: wall_button_2
       rect:
         serializedVersion: 2
         x: 16
@@ -2560,7 +2561,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_170
+      name: wall_button_3
       rect:
         serializedVersion: 2
         x: 32
@@ -2573,7 +2574,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_171
+      name: wall_button_0
       rect:
         serializedVersion: 2
         x: 48
