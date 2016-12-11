@@ -129,6 +129,10 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < heroes.Count; i++) {
 			heroes[i].MoveHero();
 			yield return new WaitForSeconds(heroes[i].moveTime);
+
+			if (((Hero)heroes [i]).isKilled) {
+				RemoveHeroFromList (heroes [i]);
+			}
 		}
 
 		playersTurn = true;
