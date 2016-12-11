@@ -21,7 +21,7 @@ public class Hero : MovingObject {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Exit") {
+		if (other.tag == "Exit" && GameManager.instance.doorOpen) {
 			GameManager.instance.RemoveHeroFromList(this);
 		}
 	}
@@ -96,14 +96,12 @@ public class Hero : MovingObject {
 	{
 		Component hitObject = component as Component;
 
-		if (hitObject.tag == "OuterWall" || hitObject.tag == "Hero") {
-			if (orientation.x != 0) {
-				orientation.x = 0;
-				orientation.y = Random.Range (0, 2) == 0 ? -1 : 1;
-			} else {
-				orientation.y = 0;
-				orientation.x = Random.Range (0, 2) == 0 ? -1 : 1;
-			}
+		if (orientation.x != 0) {
+			orientation.x = 0;
+			orientation.y = Random.Range (0, 2) == 0 ? -1 : 1;
+		} else {
+			orientation.y = 0;
+			orientation.x = Random.Range (0, 2) == 0 ? -1 : 1;
 		}
 	}
 }

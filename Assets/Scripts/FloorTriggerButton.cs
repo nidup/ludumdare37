@@ -7,7 +7,6 @@ public class FloorTriggerButton : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Hero") {
 
-
 			GameObject[] doors = GameObject.FindGameObjectsWithTag ("Exit");
 			GameObject door = doors [0];
 			Animator doorAnimator = door.GetComponent<Animator> ();
@@ -24,6 +23,11 @@ public class FloorTriggerButton : MonoBehaviour {
 			bool oldState = GameManager.instance.doorOpen;
 			bool newState = !oldState;
 			GameManager.instance.doorOpen = newState;
+
+			int blockingLayerIdx = LayerMask.NameToLayer ("BlockingLayer");
+			int defaultLayerIdx = LayerMask.NameToLayer ("Default");
+
+			door.layer = GameManager.instance.doorOpen ? defaultLayerIdx : blockingLayerIdx;
 		}
 	}
 }
