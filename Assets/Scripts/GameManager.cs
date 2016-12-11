@@ -6,6 +6,7 @@ using UnityStandardAssets.ImageEffects;
 
 public class GameManager : MonoBehaviour {
 
+	public bool gameStarting = true;
     public float levelStartDelay = 2f;
     public float turnDelay = 0.1f;
     public static GameManager instance = null;
@@ -37,18 +38,29 @@ public class GameManager : MonoBehaviour {
 		InitGame();
 	}
 
+	void InitGame() {
+		levelImage = GameObject.Find("LevelImage");
+		levelText = GameObject.Find("LevelText").GetComponent<Text>();
+		levelText.text = "You're Paul. Paul Terguei.\nYou were a king. Deceased for decades, \nyou're now a ghost who tries to protect \n his glory room from felony knights \nby terrifying them. \n \n \n(click to start)";
+		levelText.fontSize = 40;
+
+		levelImage.SetActive(true);
+
+	}
+
 	private void OnLevelWasLoaded(int index)
 	{
 	    level++;
-	    InitGame();
+		InitLevel();
 	}
 
-	void InitGame()
+	void InitLevel()
 	{
 	    doingSetup = true;
 	    levelImage = GameObject.Find("LevelImage");
 	    levelText = GameObject.Find("LevelText").GetComponent<Text>();
 	    levelText.text = "Level " + level;
+		levelText.fontSize = 24;
 	    levelImage.SetActive(true);
 	    Invoke("HideLevelImage", levelStartDelay);
 
@@ -65,7 +77,7 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
     {
-        levelText.text = "After " + level + " days, you starved.";
+        levelText.text = "After " + level + " days... you lost";
         levelImage.SetActive(true);
         enabled = false;
     }
@@ -73,8 +85,18 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+
 		if (Input.GetMouseButtonDown (0)) {
-			CastSpell (Input.mousePosition, "Repulse");
+			if (gameStarting) {
+				gameStarting = false;
+				Invoke ("HideLevelImage", levelStartDelay);
+				GameObject paulImage = GameObject.Find("PaulImage");
+				paulImage.SetActive (false);
+				InitLevel ();
+ 
+			} else {
+				CastSpell (Input.mousePosition, "Repulse");
+			}
 		}
 
 		if (enemiesMoving || heroesMoving || doingSetup) {
