@@ -17,6 +17,7 @@ public class Hero : MovingObject {
 
 	public bool isBerserker;
 	public bool isKilled;
+	public bool isInLove;
 
 	protected override void Start ()
 	{
@@ -32,7 +33,7 @@ public class Hero : MovingObject {
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Exit" && GameManager.instance.doorOpen) {
-			GameManager.instance.RemoveHeroFromList(this);
+			gameObject.GetComponent<Hero>().MarkAsKilled();
 		}
 	}
 
@@ -41,7 +42,15 @@ public class Hero : MovingObject {
 		int xDir = 0;
 		int yDir = 0;
 
-		if (target != null) {
+		if (target != null && isBerserker) {
+
+			GameObject enemy = FindClosestEnemy ();
+			if (enemy == null) { // last target is out
+				target = null;
+				return;
+			}
+
+			target = enemy.transform;
 
 			if (Mathf.Abs(target.position.x - transform.position.x) < float.Epsilon) {
 				yDir = target.position.y > transform.position.y ? 1 : -1;
@@ -61,9 +70,12 @@ public class Hero : MovingObject {
 		AttemptMove<Component>(xDir, yDir);
 	}
 
-	/*
 	public void Attract(Vector3 spellPosition)
 	{
+		GameObject text = transform.Find ("Text").gameObject;
+		SpriteText spriteText = text.GetComponent<SpriteText>();
+		spriteText.TempText("<3", 2);
+
 		float xDistance = Mathf.Abs (spellPosition.x - transform.position.x);
 		float yDistance = Mathf.Abs (spellPosition.y - transform.position.y);
 		if (xDistance > yDistance) {
@@ -84,11 +96,15 @@ public class Hero : MovingObject {
 			}
 		}
 	}
-	*/
 
 	public void Repulse(Vector3 spellPosition)
 	{
 		if (isBerserker) {
+			return;
+		}
+
+		if (isInLove) {
+			Attract (spellPosition);
 			return;
 		}
 
@@ -125,7 +141,7 @@ public class Hero : MovingObject {
 
 		yield return new WaitForSeconds(duration);
 
-		if (!isBerserker) {
+		if (!isBerserker && !isInLove) {
 			renderer.sprite = normalSprite;
 		}
 	}
@@ -135,8 +151,6 @@ public class Hero : MovingObject {
 		Component hitObject = component as Component;
 
 		if (target != null && hitObject.gameObject == target.gameObject) {
-
-			//Debug.Log (hitObject);
 
 			if (isBerserker) {
 				target.gameObject.GetComponent<Hero> ().MarkAsKilled();
@@ -157,6 +171,7 @@ public class Hero : MovingObject {
 	}
 
 	public void GoBerseker() {
+		PruneEffect ();
 
 		isBerserker = true;
 		GetComponent<SpriteRenderer> ().sprite = berserkerSprite;
@@ -170,7 +185,6 @@ public class Hero : MovingObject {
 		}
 
 		target = enemy.transform;
-
 	}
 
 	public void MarkAsKilled() {
@@ -189,7 +203,28 @@ public class Hero : MovingObject {
 	}
 
 	public void FallInLove() {
-		Debug.Log ("go go in love");
+		PruneEffect ();
+		isInLove = true;
+		GetComponent<SpriteRenderer> ().sprite = loveSprite;
+
+		StartCoroutine (AutoStopLoveEffect(20));
+	}
+
+	public void StopingLove() {
+		isInLove = false;
+		GetComponent<SpriteRenderer> ().sprite = normalSprite;
+	}
+
+	public void PruneEffect() {
+		isBerserker = false;
+		isInLove = false;
+		GetComponent<SpriteRenderer> ().sprite = normalSprite;
+		target = null;
+	}
+
+	private IEnumerator AutoStopLoveEffect(int time){
+		yield return new WaitForSeconds(time);
+		StopingLove ();
 	}
 
 	private GameObject FindClosestEnemy() {

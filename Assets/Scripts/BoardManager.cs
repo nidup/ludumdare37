@@ -155,7 +155,7 @@ public class BoardManager : MonoBehaviour {
 		GameObject plug1 = Instantiate(plugPrefab, new Vector3(12, 12, 0f), Quaternion.identity);
 		plug1.GetComponent<Plug>().SetType ("Berserker");
 
-		//GameObject plug2 = Instantiate(plugPrefab, new Vector3(1, 12, 0f), Quaternion.identity);
-		//plug2.GetComponent<Plug>().SetType ("Love");
+		GameObject plug2 = Instantiate(plugPrefab, new Vector3(3, 9, 0f), Quaternion.identity);
+		plug2.GetComponent<Plug>().SetType ("Love");
     }
 }
