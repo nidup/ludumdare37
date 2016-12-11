@@ -136,31 +136,43 @@ public class GameManager : MonoBehaviour {
 
 	public void CastSpell(Vector3 spellPosition, string spellType)
 	{
-		spellPosition = Camera.main.ScreenToWorldPoint (spellPosition);
+		Vector3 worldSpellPosition = Camera.main.ScreenToWorldPoint (spellPosition);
 		int spellDistance = 4;
+
+		Debug.Log ("CLICK AT "+spellPosition.x+","+spellPosition.y+","+spellPosition.z );
 
 		for (int i = 0; i < heroes.Count; i++) {
 			bool impactedHero = false;
 
 			if (
-				Mathf.Abs(spellPosition.x - heroes[i].transform.position.x) < spellDistance &&
-				Mathf.Abs(spellPosition.y - heroes[i].transform.position.y) < spellDistance
+				Mathf.Abs(worldSpellPosition.x - heroes[i].transform.position.x) < spellDistance &&
+				Mathf.Abs(worldSpellPosition.y - heroes[i].transform.position.y) < spellDistance
 			) {
 				impactedHero = true;
 			}
 
-			if (impactedHero) {
-				/*if (spellType == "Attract") {
-					heroes [i].Attract (spellPosition);
-				} else*/ 
-				if (spellType == "Repulse") {
-					heroes [i].Repulse (spellPosition);
-					GameObject mainCam = GameObject.Find("Main Camera");
-					Bloom bloomEffect = mainCam.GetComponent<Bloom> ();
-					bloomEffect.bloomIntensity = -3f;
-					StartCoroutine(CountdownSpellCameraEffect (0.090f));
-				}
+			if (spellType == "Repulse" && impactedHero) {
+				heroes [i].Repulse (worldSpellPosition);
 			}
+		}
+
+		if (spellType == "Repulse") {
+			GameObject mainCam = GameObject.Find("Main Camera");
+			Bloom bloomEffect = mainCam.GetComponent<Bloom> ();
+			bloomEffect.bloomIntensity = -3f;
+
+			GameObject spellEffect = boardScript.spellEffect;
+			Vector3 spellFXPos = new Vector3 (worldSpellPosition.x, worldSpellPosition.y, worldSpellPosition.z);
+			spellFXPos.z = -5;
+			GameObject fx = Instantiate(spellEffect, spellFXPos, Quaternion.identity);
+			Destroy(fx, 2);
+			//fx.transform.SetParent(boardScript.transform);
+			//fx.GetComponent<Renderer>().sortingLayerName = "HighWalls";
+			//fx.GetComponent<Renderer>().sortingOrder = 0;
+
+			Debug.Log ("INSTANCE AT "+spellFXPos.x+","+spellFXPos.y+","+spellFXPos.z );
+
+			StartCoroutine(CountdownSpellCameraEffect (0.090f));
 		}
 	}
 
