@@ -19,6 +19,10 @@ public class FloorTriggerButton : MonoBehaviour {
 				return;
 			}
 
+			GameObject doorText = door.transform.Find ("Text").gameObject;
+			SpriteText doorSpriteText = doorText.GetComponent<SpriteText>();
+			doorSpriteText.TempText("CRRR", 1);
+
 			doorAnimator.SetTrigger ("Switch");
 
 			bool oldState = GameManager.instance.doorOpen;
@@ -41,6 +45,10 @@ public class FloorTriggerButton : MonoBehaviour {
 			if (buttonAnimator.GetCurrentAnimatorStateInfo (0).IsName ("ButtonOpening")) {
 				return;
 			}
+
+			GameObject buttonText = button.transform.Find ("Text").gameObject;
+			SpriteText buttonSpriteText = buttonText.GetComponent<SpriteText>();
+			buttonSpriteText.TempText("CLIC", 1);
 
 			buttonAnimator.SetTrigger ("Switch");
 		}
