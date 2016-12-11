@@ -140,8 +140,6 @@ public class GameManager : MonoBehaviour {
 		Vector3 worldSpellPosition = Camera.main.ScreenToWorldPoint (spellPosition);
 		int spellDistance = 4;
 
-		Debug.Log ("CLICK AT "+spellPosition.x+","+spellPosition.y+","+spellPosition.z );
-
 		for (int i = 0; i < heroes.Count; i++) {
 			bool impactedHero = false;
 
@@ -167,11 +165,6 @@ public class GameManager : MonoBehaviour {
 			spellFXPos.z = -5;
 			GameObject fx = Instantiate(spellEffect, spellFXPos, Quaternion.identity);
 			Destroy(fx, 2);
-			//fx.transform.SetParent(boardScript.transform);
-			//fx.GetComponent<Renderer>().sortingLayerName = "HighWalls";
-			//fx.GetComponent<Renderer>().sortingOrder = 0;
-
-			Debug.Log ("INSTANCE AT "+spellFXPos.x+","+spellFXPos.y+","+spellFXPos.z );
 
 			StartCoroutine(CountdownSpellCameraEffect (0.090f));
 		}
