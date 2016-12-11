@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class GameManager : MonoBehaviour {
 
@@ -72,8 +73,6 @@ public class GameManager : MonoBehaviour {
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
-			CastSpell (Input.mousePosition, "Attract");
-		} else if (Input.GetMouseButtonDown (1)) {
 			CastSpell (Input.mousePosition, "Repulse");
 		}
 
@@ -151,12 +150,32 @@ public class GameManager : MonoBehaviour {
 			}
 
 			if (impactedHero) {
-				if (spellType == "Attract") {
+				/*if (spellType == "Attract") {
 					heroes [i].Attract (spellPosition);
-				} else if (spellType == "Repulse") {
+				} else*/ 
+				if (spellType == "Repulse") {
 					heroes [i].Repulse (spellPosition);
+					GameObject mainCam = GameObject.Find("Main Camera");
+					Bloom bloomEffect = mainCam.GetComponent<Bloom> ();
+					bloomEffect.bloomIntensity = -3f;
+					StartCoroutine(CountdownSpellCameraEffect (0.090f));
 				}
 			}
 		}
+	}
+
+	private IEnumerator CountdownSpellCameraEffect(float time){
+		bool called = false;
+
+		if (!called) {
+			called = true;
+			yield return new WaitForSeconds(time);
+		}
+
+		GameObject mainCam = GameObject.Find("Main Camera");
+		Bloom bloomEffect = mainCam.GetComponent<Bloom> ();
+		bloomEffect.bloomIntensity = 0.5f;
+
+		//GetComponent<TextMesh>().text = "";
 	}
 }

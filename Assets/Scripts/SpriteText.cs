@@ -38,9 +38,5 @@ public class SpriteText : MonoBehaviour
 		}
 			
 		GetComponent<TextMesh>().text = "";
-
-		//GetComponent<TextMesh>().material.color.a -= 0.4 * Time.deltaTime;
-		//text.text = "";
-		//textDisplayed = false;
 	}
 }

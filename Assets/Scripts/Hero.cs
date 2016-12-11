@@ -40,6 +40,7 @@ public class Hero : MovingObject {
 		AttemptMove<Component>(xDir, yDir);
 	}
 
+	/*
 	public void Attract(Vector3 spellPosition)
 	{
 		float xDistance = Mathf.Abs (spellPosition.x - transform.position.x);
@@ -62,7 +63,7 @@ public class Hero : MovingObject {
 			}
 		}
 	}
-
+	*/
 
 	public void Repulse(Vector3 spellPosition)
 	{
