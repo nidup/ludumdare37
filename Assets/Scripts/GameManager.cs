@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour {
 	void InitLevel()
 	{
 	    doingSetup = true;
+		doorOpen = false;
 
 	    levelText.text = "Level " + level;
 		levelText.fontSize = 24;

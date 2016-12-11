@@ -45,8 +45,11 @@ public class BoardManager : MonoBehaviour {
         }
     }
 
-    void BoardSetup()
+	void BoardSetup(int level)
     {
+		if (boardHolder != null) {
+			Destroy (boardHolder.gameObject);
+		}
 
         string[,] map = {
              {"ow-0","ow-1","ow-1","ow-22","ow-1","ow-1","ow-2","ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-22","ow-1","ow-22","ow-1","ow-1","ow-1","ow-2"},
@@ -135,13 +138,13 @@ public class BoardManager : MonoBehaviour {
 
     public void SetupScene(int level)
     {
-        BoardSetup();
+		BoardSetup(level);
         InitializeList();
         //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
         //LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
         //int enemyCount = (int) Mathf.Log(level, 2f);
-		int enemyCount = 0;
-        LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+		//int enemyCount = 0;
+        //LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
 		GameObject hero1 = Instantiate(heroTiles[0], new Vector3(1, 8, 0f), Quaternion.identity);
 		hero1.GetComponent<Hero> ().orientation = new Vector3 (0, 1, 0f);
@@ -157,5 +160,8 @@ public class BoardManager : MonoBehaviour {
 
 		GameObject plug2 = Instantiate(plugPrefab, new Vector3(3, 9, 0f), Quaternion.identity);
 		plug2.GetComponent<Plug>().SetType ("Love");
+
+		plug1.transform.SetParent(boardHolder);
+		plug2.transform.SetParent(boardHolder);
     }
 }
