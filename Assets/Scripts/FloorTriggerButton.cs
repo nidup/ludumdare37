@@ -6,7 +6,8 @@ public class FloorTriggerButton : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Hero") {
-
+			
+			// animate door
 			GameObject[] doors = GameObject.FindGameObjectsWithTag ("Exit");
 			GameObject door = doors [0];
 			Animator doorAnimator = door.GetComponent<Animator> ();
@@ -28,6 +29,20 @@ public class FloorTriggerButton : MonoBehaviour {
 			int defaultLayerIdx = LayerMask.NameToLayer ("Default");
 
 			door.layer = GameManager.instance.doorOpen ? defaultLayerIdx : blockingLayerIdx;
+
+			// animate button
+			GameObject[] buttons = GameObject.FindGameObjectsWithTag ("Button");
+			GameObject button = buttons [0];
+			Animator buttonAnimator = button.GetComponent<Animator> ();
+
+			if (buttonAnimator.GetCurrentAnimatorStateInfo (0).IsName ("ButtonDowning")) {
+				return;
+			}
+			if (buttonAnimator.GetCurrentAnimatorStateInfo (0).IsName ("ButtonOpening")) {
+				return;
+			}
+
+			buttonAnimator.SetTrigger ("Switch");
 		}
 	}
 }
