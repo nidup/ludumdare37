@@ -173,6 +173,10 @@ public class Hero : MovingObject {
 	public void GoBerseker() {
 		PruneEffect ();
 
+		GameObject text = transform.Find ("Text").gameObject;
+		SpriteText spriteText = text.GetComponent<SpriteText>();
+		spriteText.TempText("WARGH!", 2);
+
 		isBerserker = true;
 		GetComponent<SpriteRenderer> ().sprite = berserkerSprite;
 
