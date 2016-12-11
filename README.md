@@ -1,2 +1,7 @@
-# 2d-roguelike-tutorial
-Unity3D, 2D Roguelike tutorial
+# Ludum Dare 37
+
+Small dungeon game rushly developed #uglyCodeAndBugsInside by grena and nidup for the Ludum Dare 37.
+
+
+
+
