@@ -120,4 +120,12 @@ public class Hero : MovingObject {
 			orientation.x = Random.Range (0, 2) == 0 ? -1 : 1;
 		}
 	}
+
+	public void GoBerseker() {
+		Debug.Log ("Go go bersekrkrk)");
+	}
+
+	public void FallInLove() {
+		Debug.Log ("go go in love");
+	}
 }

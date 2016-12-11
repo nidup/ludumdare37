@@ -20,6 +20,7 @@ public class BoardManager : MonoBehaviour {
     public Count foodCount = new Count(1, 5);
     public GameObject exit;
 	public GameObject button;
+	public GameObject plugPrefab;
     public GameObject[] floorTiles;
     public GameObject[] wallTiles;
     public GameObject[] foodTiles;
@@ -150,5 +151,11 @@ public class BoardManager : MonoBehaviour {
 
 		GameObject hero3 = Instantiate(heroTiles[0], new Vector3(18, 4, 0f), Quaternion.identity);
 		hero3.GetComponent<Hero> ().orientation = new Vector3 (-1, 0, 0f);
+
+		GameObject plug1 = Instantiate(plugPrefab, new Vector3(12, 12, 0f), Quaternion.identity);
+		plug1.GetComponent<Plug>().SetType ("Berserker");
+
+		//GameObject plug2 = Instantiate(plugPrefab, new Vector3(1, 12, 0f), Quaternion.identity);
+		//plug2.GetComponent<Plug>().SetType ("Love");
     }
 }

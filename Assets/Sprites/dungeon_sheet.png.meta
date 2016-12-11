@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481465154
+timeCreated: 1481465462
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -167,11 +167,11 @@ TextureImporter:
     21300320: dungeon_sheet (1)_160
     21300322: dungeon_sheet (1)_161
     21300324: dungeon_sheet (1)_162
-    21300326: dungeon_sheet (1)_163
-    21300328: dungeon_sheet (1)_164
-    21300330: dungeon_sheet (1)_165
-    21300332: dungeon_sheet (1)_166
-    21300334: dungeon_sheet (1)_167
+    21300326: plug_normal
+    21300328: plug_berserker
+    21300330: plug_fear
+    21300332: plug_love
+    21300334: plug_immune
     21300336: wall_button_1
     21300338: wall_button_2
     21300340: wall_button_3
@@ -195,7 +195,7 @@ TextureImporter:
     21300376: knight_berserker
     21300378: knight_fear
     21300380: knight_love
-    21300382: dungeon_sheet (1)_191
+    21300382: knight_immune
     21300384: dungeon_sheet (1)_192
     21300386: dungeon_sheet (1)_193
     21300388: dungeon_sheet (1)_194
@@ -2470,7 +2470,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_163
+      name: plug_normal
       rect:
         serializedVersion: 2
         x: 304
@@ -2483,7 +2483,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_164
+      name: plug_berserker
       rect:
         serializedVersion: 2
         x: 320
@@ -2496,7 +2496,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_165
+      name: plug_fear
       rect:
         serializedVersion: 2
         x: 336
@@ -2509,7 +2509,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_166
+      name: plug_love
       rect:
         serializedVersion: 2
         x: 352
@@ -2522,7 +2522,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_167
+      name: plug_immune
       rect:
         serializedVersion: 2
         x: 368
@@ -2834,7 +2834,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_191
+      name: knight_immune
       rect:
         serializedVersion: 2
         x: 368
