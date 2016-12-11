@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 
     private Text levelText;
     private GameObject levelImage;
+	private GameObject paulImage;
     private int level = 1;
     private List<Enemy> enemies;
 	private List<Hero> heroes;
@@ -34,13 +35,16 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         enemies = new List<Enemy>();
 		heroes = new List<Hero>();
+
+		levelImage = GameObject.Find("LevelImage");
+		paulImage = GameObject.Find("PaulImage");
+		levelText = GameObject.Find("LevelText").GetComponent<Text>();
+
 		boardScript = GetComponent<BoardManager>();
 		InitGame();
 	}
 
 	void InitGame() {
-		levelImage = GameObject.Find("LevelImage");
-		levelText = GameObject.Find("LevelText").GetComponent<Text>();
 		levelText.text = "You're Paul. Paul Terguei.\nYou were a king. Deceased for decades, \nyou're now a ghost who tries to protect \n his glory room from felony knights \nby terrifying them. \n \n \n(click to start)";
 		levelText.fontSize = 40;
 
@@ -57,8 +61,7 @@ public class GameManager : MonoBehaviour {
 	void InitLevel()
 	{
 	    doingSetup = true;
-	    levelImage = GameObject.Find("LevelImage");
-	    levelText = GameObject.Find("LevelText").GetComponent<Text>();
+
 	    levelText.text = "Level " + level;
 		levelText.fontSize = 24;
 	    levelImage.SetActive(true);
@@ -90,7 +93,6 @@ public class GameManager : MonoBehaviour {
 			if (gameStarting) {
 				gameStarting = false;
 				Invoke ("HideLevelImage", levelStartDelay);
-				GameObject paulImage = GameObject.Find("PaulImage");
 				paulImage.SetActive (false);
 				InitLevel ();
  
@@ -140,6 +142,15 @@ public class GameManager : MonoBehaviour {
 		Destroy (script.gameObject);
 	}
 
+	private void NextLevel()
+	{
+		if (heroes.Count == 0 && !doingSetup && !gameStarting) {
+			level++;
+			InitLevel ();
+		}
+
+	}
+
 	IEnumerator MoveHeroes()
 	{
 		heroesMoving = true;
@@ -159,6 +170,8 @@ public class GameManager : MonoBehaviour {
 
 		playersTurn = true;
 		heroesMoving = false;
+
+		NextLevel ();
 	}
 
 	public void CastSpell(Vector3 spellPosition, string spellType)
