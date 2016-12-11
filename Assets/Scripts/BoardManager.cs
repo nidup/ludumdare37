@@ -48,22 +48,22 @@ public class BoardManager : MonoBehaviour {
     {
 
         string[,] map = {
-             {"ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-2","ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-1","ow-2"},
-             {"ow-3","ow-4","ow-4","ow-4","ow-4","ow-4","ow-5","ow-3","ow-4","ow-4","ow-4","ow-4","ow-4","ow-4","do-0","ow-4","ow-4","ow-4","ow-4","ow-5"},
+             {"ow-0","ow-1","ow-1","ow-22","ow-1","ow-1","ow-2","ow-0","ow-1","ow-1","ow-1","ow-1","ow-1","ow-22","ow-1","ow-22","ow-1","ow-1","ow-1","ow-2"},
+             {"ow-3","ow-4","ow-4","ow-23","ow-4","ow-4","ow-5","ow-3","ow-4","ow-4","ow-4","ow-4","ow-4","ow-23","do-0","ow-23","ow-4","ow-4","ow-4","ow-5"},
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","ow-13","ow-14","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","ow-15","ow-16","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","ow-15","ow-16","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-1","fl-0","ow-7"},
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","ow-17","ow-18","fl-0","fl-0","fl-0","fl-0","fl-0","ow-20","fl-0","ow-20","fl-0","fl-0","fl-0","ow-7"},
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-21","fl-0","ow-21","fl-0","fl-0","fl-0","ow-7"},
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-20","fl-0","ow-20","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-21","fl-0","ow-21","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-2","fl-0","fl-0","fl-0","fl-0","fl-0","ow-21","fl-0","ow-21","fl-0","fl-0","fl-0","ow-7"},
              {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-8","ow-9","ow-9","ow-9","ow-12","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-20","fl-0","ow-20","fl-0","fl-0","fl-0","ow-7"},
-			 {"ow-19","ow-19","ow-19","ow-19","ow-14","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-21","fl-0","ow-21","fl-0","fl-0","fl-0","ow-7"},
-			 {"ow-0","ow-1","ow-1","ow-1","ow-16","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+			 {"ow-19","ow-19","ow-19","ow-19","ow-14","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-21","fl-0","ow-21","fl-3","fl-0","fl-0","ow-7"},
+			 {"ow-0","ow-1","ow-1","ow-1","ow-16","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-3","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-3","ow-4","bt-0","ow-4","ow-18","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","ft-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-			 {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-11","ow-12","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","ft-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-4","fl-0","fl-0","ow-7"},
+			 {"ow-6","fl-0","fl-0","fl-1","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-11","ow-12","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-13","ow-14","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10","ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10"},
 			 {"ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19","ow-19"}
@@ -100,6 +100,10 @@ public class BoardManager : MonoBehaviour {
 					instance.transform.SetParent(boardHolder);
 				} else if (prefabType == "ft") {
 					prefab = floorTriggerPrefabs[prefabIndex];
+					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
+					instance.transform.SetParent(boardHolder);
+				} else if (prefabType == "fl" && prefabIndex != 0) {
+					prefab = floorTiles[prefabIndex];
 					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
 					instance.transform.SetParent(boardHolder);
 				}

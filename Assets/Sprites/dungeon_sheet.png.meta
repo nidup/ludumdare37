@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481412332
+timeCreated: 1481462220
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -109,7 +109,7 @@ TextureImporter:
     21300204: dungeon_sheet (1)_102
     21300206: dungeon_sheet (1)_103
     21300208: dungeon_sheet (1)_104
-    21300210: dungeon_sheet (1)_105
+    21300210: wall_pylon_top
     21300212: dungeon_sheet (1)_106
     21300214: dungeon_sheet (1)_107
     21300216: dungeon_sheet (1)_108
@@ -133,7 +133,7 @@ TextureImporter:
     21300252: dungeon_sheet (1)_126
     21300254: dungeon_sheet (1)_127
     21300256: dungeon_sheet (1)_128
-    21300258: dungeon_sheet (1)_129
+    21300258: wall_pylon_bottom
     21300260: dungeon_sheet (1)_130
     21300262: dungeon_sheet (1)_131
     21300264: dungeon_sheet (1)_132
@@ -187,10 +187,10 @@ TextureImporter:
     21300360: dungeon_sheet (1)_180
     21300362: dungeon_sheet (1)_181
     21300364: dungeon_sheet (1)_182
-    21300366: dungeon_sheet (1)_183
-    21300368: dungeon_sheet (1)_184
-    21300370: dungeon_sheet (1)_185
-    21300372: dungeon_sheet (1)_186
+    21300366: merdosol_1
+    21300368: merdosol_2
+    21300370: merdosol_3
+    21300372: merdosol_4
     21300374: knight_normal
     21300376: dungeon_sheet (1)_188
     21300378: dungeon_sheet (1)_189
@@ -1716,7 +1716,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_105
+      name: wall_pylon_top
       rect:
         serializedVersion: 2
         x: 144
@@ -2028,7 +2028,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_129
+      name: wall_pylon_bottom
       rect:
         serializedVersion: 2
         x: 144
@@ -2730,7 +2730,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_183
+      name: merdosol_1
       rect:
         serializedVersion: 2
         x: 240
@@ -2743,7 +2743,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_184
+      name: merdosol_2
       rect:
         serializedVersion: 2
         x: 256
@@ -2756,7 +2756,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_185
+      name: merdosol_3
       rect:
         serializedVersion: 2
         x: 272
@@ -2769,7 +2769,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_186
+      name: merdosol_4
       rect:
         serializedVersion: 2
         x: 288
