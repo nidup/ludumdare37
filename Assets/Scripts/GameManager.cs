@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour {
 		if (spellType == "Repulse") {
 			GameObject mainCam = GameObject.Find("Main Camera");
 			Bloom bloomEffect = mainCam.GetComponent<Bloom> ();
-			bloomEffect.bloomIntensity = -3f;
+			bloomEffect.bloomIntensity = -0.7f;
 
 			GameObject spellEffect = boardScript.spellEffect;
 			Vector3 spellFXPos = new Vector3 (worldSpellPosition.x, worldSpellPosition.y, worldSpellPosition.z);
@@ -180,8 +180,6 @@ public class GameManager : MonoBehaviour {
 
 		GameObject mainCam = GameObject.Find("Main Camera");
 		Bloom bloomEffect = mainCam.GetComponent<Bloom> ();
-		bloomEffect.bloomIntensity = 0.5f;
-
-		//GetComponent<TextMesh>().text = "";
+		bloomEffect.bloomIntensity = 0f;
 	}
 }

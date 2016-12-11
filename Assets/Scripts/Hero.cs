@@ -8,10 +8,15 @@ public class Hero : MovingObject {
 
 	public Vector3 orientation;
 
+	public Sprite normalSprite;
+	public Sprite fearSprite;
+	public Sprite loveSprite;
+	public Sprite berserkerSprite;
+
 	protected override void Start ()
 	{
 		GameManager.instance.AddHeroToList(this);
-		//orientation = new Vector3 (0, -1, 0f);
+
 		base.Start();
 	}
 
@@ -69,7 +74,8 @@ public class Hero : MovingObject {
 	{
 		GameObject text = transform.Find ("Text").gameObject;
 		SpriteText spriteText = text.GetComponent<SpriteText>();
-		spriteText.TempText("!", 1);
+		spriteText.TempText("!", 2);
+		StartCoroutine(TempSprite (fearSprite, 2));
 		
 		float xDistance = Mathf.Abs (spellPosition.x - transform.position.x);
 		float yDistance = Mathf.Abs (spellPosition.y - transform.position.y);
@@ -90,6 +96,16 @@ public class Hero : MovingObject {
 				orientation.x = 0;
 			}
 		}
+	}
+
+	protected IEnumerator TempSprite(Sprite sprite, int duration)
+	{
+		SpriteRenderer renderer = GetComponent<SpriteRenderer> ();
+		renderer.sprite = sprite;
+
+		yield return new WaitForSeconds(duration);
+
+		renderer.sprite = normalSprite;
 	}
 		
 	protected override void OnCantMove <T> (T component)

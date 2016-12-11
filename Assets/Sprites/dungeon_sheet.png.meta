@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c88691a18d1d74db39a6da0b03992e8d
-timeCreated: 1481462220
+timeCreated: 1481465154
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -192,9 +192,9 @@ TextureImporter:
     21300370: merdosol_3
     21300372: merdosol_4
     21300374: knight_normal
-    21300376: dungeon_sheet (1)_188
-    21300378: dungeon_sheet (1)_189
-    21300380: dungeon_sheet (1)_190
+    21300376: knight_berserker
+    21300378: knight_fear
+    21300380: knight_love
     21300382: dungeon_sheet (1)_191
     21300384: dungeon_sheet (1)_192
     21300386: dungeon_sheet (1)_193
@@ -2795,7 +2795,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_188
+      name: knight_berserker
       rect:
         serializedVersion: 2
         x: 320
@@ -2808,7 +2808,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_189
+      name: knight_fear
       rect:
         serializedVersion: 2
         x: 336
@@ -2821,7 +2821,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: dungeon_sheet (1)_190
+      name: knight_love
       rect:
         serializedVersion: 2
         x: 352
