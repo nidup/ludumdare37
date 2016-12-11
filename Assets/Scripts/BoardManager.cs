@@ -27,6 +27,7 @@ public class BoardManager : MonoBehaviour {
 	public GameObject[] heroTiles;
     public GameObject[] outerWallTiles;
 	public GameObject spellEffect;
+	public GameObject[] floorTriggerPrefabs;
 
     private Transform boardHolder;
     private List<Vector3> gridPositions = new List<Vector3>();
@@ -61,7 +62,7 @@ public class BoardManager : MonoBehaviour {
 			 {"ow-19","ow-19","ow-19","ow-19","ow-14","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-21","fl-0","ow-21","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-0","ow-1","ow-1","ow-1","ow-16","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-3","ow-4","bt-0","ow-4","ow-18","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
-             {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
+             {"ow-6","fl-0","ft-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-11","ow-12","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-6","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","fl-0","ow-13","ow-14","fl-0","fl-0","fl-0","fl-0","fl-0","ow-7"},
 			 {"ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10","ow-8","ow-9","ow-9","ow-9","ow-9","ow-9","ow-10"},
@@ -95,6 +96,10 @@ public class BoardManager : MonoBehaviour {
                     instance.transform.SetParent(boardHolder);
 				} else if (prefabType == "bt") {
 					prefab = button;
+					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
+					instance.transform.SetParent(boardHolder);
+				} else if (prefabType == "ft") {
+					prefab = floorTriggerPrefabs[prefabIndex];
 					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
 					instance.transform.SetParent(boardHolder);
 				}

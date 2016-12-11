@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public BoardManager boardScript;
     public int playerFoodPoints = 100;
     [HideInInspector] public bool playersTurn = true;
+	[HideInInspector] public bool doorOpen = false;
 
     private Text levelText;
     private GameObject levelImage;
