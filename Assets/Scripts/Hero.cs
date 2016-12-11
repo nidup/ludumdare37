@@ -6,12 +6,12 @@ public class Hero : MovingObject {
 
 	public int playerDamage ;
 
-	private Vector3 orientation;
+	public Vector3 orientation;
 
 	protected override void Start ()
 	{
 		GameManager.instance.AddHeroToList(this);
-		orientation = new Vector3 (0, -1, 0f);
+		//orientation = new Vector3 (0, -1, 0f);
 		base.Start();
 	}
 

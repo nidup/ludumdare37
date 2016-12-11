@@ -141,9 +141,14 @@ public class BoardManager : MonoBehaviour {
         //int enemyCount = (int) Mathf.Log(level, 2f);
 		int enemyCount = 0;
         LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
-		Instantiate(heroTiles[0], new Vector3(8, 8, 0f), Quaternion.identity);
-		Instantiate(heroTiles[0], new Vector3(5, 5, 0f), Quaternion.identity);
-		Instantiate(heroTiles[0], new Vector3(3, 3, 0f), Quaternion.identity);
-        //Instantiate(exit, new Vector3(columns - 2, rows -2, 0f), Quaternion.identity);
+
+		GameObject hero1 = Instantiate(heroTiles[0], new Vector3(1, 8, 0f), Quaternion.identity);
+		hero1.GetComponent<Hero> ().orientation = new Vector3 (0, 1, 0f);
+
+		GameObject hero2 = Instantiate(heroTiles[0], new Vector3(12, 16, 0f), Quaternion.identity);
+		hero2.GetComponent<Hero> ().orientation = new Vector3 (0, -1, 0f);
+
+		GameObject hero3 = Instantiate(heroTiles[0], new Vector3(18, 4, 0f), Quaternion.identity);
+		hero3.GetComponent<Hero> ().orientation = new Vector3 (-1, 0, 0f);
     }
 }
