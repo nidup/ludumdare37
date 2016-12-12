@@ -208,6 +208,11 @@ public class Hero : MovingObject {
 
 	public void FallInLove() {
 		PruneEffect ();
+
+		GameObject text = transform.Find ("Text").gameObject;
+		SpriteText spriteText = text.GetComponent<SpriteText>();
+		spriteText.TempText("HMM <3", 2);
+
 		isInLove = true;
 		GetComponent<SpriteRenderer> ().sprite = loveSprite;
 
