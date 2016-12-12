@@ -145,7 +145,9 @@ public class BoardManager : MonoBehaviour {
         //int enemyCount = (int) Mathf.Log(level, 2f);
 		//int enemyCount = 0;
         //LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+		SetupItems(level);
 
+		/*
 		GameObject hero1 = Instantiate(heroTiles[0], new Vector3(1, 8, 0f), Quaternion.identity);
 		hero1.GetComponent<Hero> ().orientation = new Vector3 (0, 1, 0f);
 
@@ -163,5 +165,85 @@ public class BoardManager : MonoBehaviour {
 
 		plug1.transform.SetParent(boardHolder);
 		plug2.transform.SetParent(boardHolder);
+		*/
+
+
     }
+
+	public void SetupItems(int level)
+	{
+		if (level == 1) {
+			SetupHero (1, 8, 0, 1);
+			SetupHero (18, 4, -1, 0);
+			SetupHero (12, 16, 0, -1);
+		} else if (level == 2) {
+			SetupHero (2, 13, 0, 1);
+			SetupHero (5, 13, 0, -1);
+			SetupHero (9, 16, 0, -1);
+			SetupHero (17, 16, 0, -1);
+			SetupHero (18, 4, -1, 0);
+
+			SetupPlug (4, 4, "Love");
+			SetupPlug (14, 6, "Love");
+			SetupPlug (11, 2, "Love");
+		} else if (level == 3) {
+			SetupHero (2, 13, 0, 1);
+			SetupHero (5, 13, 0, -1);
+			SetupHero (9, 16, 0, -1);
+			SetupHero (17, 16, 0, -1);
+			SetupHero (18, 4, -1, 0);
+			SetupHero (1, 12, 1, 0);
+			SetupHero (1, 9, 1, 0);
+
+			SetupPlug (4, 4, "Berserker");
+			SetupPlug (14, 6, "Berserker");
+			SetupPlug (14, 16, "Berserker");
+		} else if (level == 4) {
+			SetupHero (2, 13, 0, 1);
+			SetupHero (5, 13, 0, -1);
+			SetupHero (9, 16, 0, -1);
+			SetupHero (17, 16, 0, -1);
+			SetupHero (18, 4, -1, 0);
+			SetupHero (1, 12, 1, 0);
+			SetupHero (1, 9, 1, 0);
+
+			SetupPlug (4, 4, "Berserker");
+			SetupPlug (14, 6, "Berserker");
+			SetupPlug (14, 16, "Berserker");
+
+			SetupPlug (8, 16, "Love");
+			SetupPlug (9, 8, "Love");
+			SetupPlug (18, 2, "Love");
+		} else if (level == 5) {
+			SetupHero (2, 13, 0, 1);
+			SetupHero (5, 13, 0, -1);
+			SetupHero (9, 16, 0, -1);
+			SetupHero (17, 16, 0, -1);
+			SetupHero (18, 4, -1, 0);
+			SetupHero (1, 12, 1, 0);
+			SetupHero (1, 9, 1, 0);
+			SetupHero (18, 12, -1, 0);
+			SetupHero (18, 9, -1, 0);
+			SetupHero (9, 2, 0, 1);
+
+			SetupPlug (7, 11, "Berserker");
+
+			SetupPlug (15, 9, "Love");
+			SetupPlug (3, 16, "Love");
+		}
+	}
+
+	public void SetupHero(int xPos, int yPos, int xDir, int yDir)
+	{
+		Vector3 position = new Vector3 (xPos, yPos, 0f);
+		GameObject hero = Instantiate(heroTiles[0], position, Quaternion.identity);
+		hero.GetComponent<Hero> ().orientation = new Vector3 (xDir, yDir, 0f);
+	}
+
+	public void SetupPlug(int xPos, int yPos, string type)
+	{
+		GameObject plug = Instantiate(plugPrefab, new Vector3(xPos, yPos, 0f), Quaternion.identity);
+		plug.GetComponent<Plug>().SetType (type);
+		plug.transform.SetParent(boardHolder);
+	}
 }

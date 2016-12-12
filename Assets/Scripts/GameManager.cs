@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void InitGame() {
-		levelText.text = "You're Paul. Paul Terguei.\nYou were a king. Deceased for decades, \nyou're now a ghost who tries to protect \n his glory room from felony knights \nby terrifying them. \n \n \n(click to start)";
+		levelText.text = "You're Paul. Paul Terguei.\nYou were a king. Deceased for decades, \nyou're now a ghost who tries to protect \n his glory room from felony knights \nby terrifying them. \n MAKE THEM LEAVE! \n \n \n(click to start)";
 		levelText.fontSize = 40;
 
 		levelImage.SetActive(true);
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
 	    doingSetup = true;
 		doorOpen = false;
 
-	    levelText.text = "Level " + level;
+	    levelText.text = "Wave " + level;
 		levelText.fontSize = 24;
 	    levelImage.SetActive(true);
 	    Invoke("HideLevelImage", levelStartDelay);
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
 
     public void GameOver()
     {
-        levelText.text = "After " + level + " days... you lost";
+        levelText.text = "You are finally safe in your Glory Room. \n THE END";
         levelImage.SetActive(true);
         enabled = false;
     }
@@ -146,6 +146,10 @@ public class GameManager : MonoBehaviour {
 	private void NextLevel()
 	{
 		if (heroes.Count == 0 && !doingSetup && !gameStarting) {
+			if (level == 5) {
+				GameOver ();
+				return;
+			}
 			level++;
 			InitLevel ();
 		}
