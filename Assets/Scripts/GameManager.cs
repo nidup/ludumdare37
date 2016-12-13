@@ -11,17 +11,13 @@ public class GameManager : MonoBehaviour {
     public float turnDelay = 0.1f;
     public static GameManager instance = null;
     public BoardManager boardScript;
-    public int playerFoodPoints = 100;
-    [HideInInspector] public bool playersTurn = true;
 	[HideInInspector] public bool doorOpen = false;
 
     private Text levelText;
     private GameObject levelImage;
 	private GameObject paulImage;
     private int level = 1;
-    private List<Enemy> enemies;
 	private List<Hero> heroes;
-	private bool enemiesMoving;
 	private bool heroesMoving;
     private bool doingSetup;
 
@@ -33,7 +29,6 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        enemies = new List<Enemy>();
 		heroes = new List<Hero>();
 
 		levelImage = GameObject.Find("LevelImage");
@@ -68,7 +63,6 @@ public class GameManager : MonoBehaviour {
 	    levelImage.SetActive(true);
 	    Invoke("HideLevelImage", levelStartDelay);
 
-	    enemies.Clear();
 		heroes.Clear();
 	    boardScript.SetupScene(level);
 	}
@@ -102,34 +96,11 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
-		if (enemiesMoving || heroesMoving || doingSetup) {
+		if (heroesMoving || doingSetup) {
             return;
         }
-
-        StartCoroutine(MoveEnemies());
+			
 		StartCoroutine(MoveHeroes());
-	}
-
-	public void AddEnemyToList(Enemy script)
-	{
-        enemies.Add(script);
-	}
-
-	IEnumerator MoveEnemies()
-	{
-		enemiesMoving = true;
-		yield return new WaitForSeconds(turnDelay);
-		if (enemies.Count == 0) {
-		    yield return new WaitForSeconds(turnDelay);
-		}
-
-		for (int i = 0; i < enemies.Count; i++) {
-		    enemies[i].MoveEnemy();
-		    yield return new WaitForSeconds(enemies[i].moveTime);
-		}
-
-		playersTurn = true;
-		enemiesMoving = false;
 	}
 
 	public void AddHeroToList(Hero script)
@@ -172,8 +143,7 @@ public class GameManager : MonoBehaviour {
 				RemoveHeroFromList (heroes [i]);
 			}
 		}
-
-		playersTurn = true;
+			
 		heroesMoving = false;
 
 		NextLevel ();

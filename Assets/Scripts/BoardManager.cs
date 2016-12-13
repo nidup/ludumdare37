@@ -31,19 +31,8 @@ public class BoardManager : MonoBehaviour {
 	public GameObject[] floorTriggerPrefabs;
 
     private Transform boardHolder;
-    private List<Vector3> gridPositions = new List<Vector3>();
     private int columns;
     private int rows;
-
-    void InitializeList()
-    {
-        gridPositions.Clear();
-        for (int x = 1; x < columns - 1; x++) {
-            for (int y = 1; y < rows - 1; y++) {
-                gridPositions.Add(new Vector3(x, y, 0f));
-            }
-        }
-    }
 
 	void BoardSetup(int level)
     {
@@ -111,63 +100,14 @@ public class BoardManager : MonoBehaviour {
 					GameObject instance = Instantiate(prefab, new Vector3(x, rows-y-1, 0f), Quaternion.identity) as GameObject;
 					instance.transform.SetParent(boardHolder);
 				}
-			
-                //Debug.logger.Log(x.ToString()+y.ToString());
             }
-        }
-    }
-
-    Vector3 RandomPosition()
-    {
-        int randomIndex = Random.Range(0, gridPositions.Count);
-        Vector3 randomPosition = gridPositions[randomIndex];
-        gridPositions.RemoveAt(randomIndex);
-        return randomPosition;
-    }
-
-    void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
-    {
-        int objectCount = Random.Range(minimum, maximum+1);
-        for (int i = 0; i < objectCount; i++) {
-            Vector3 randomPosition = RandomPosition();
-            GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
-            Instantiate(tileChoice, randomPosition, Quaternion.identity);
-
         }
     }
 
     public void SetupScene(int level)
     {
 		BoardSetup(level);
-        InitializeList();
-        //LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
-        //LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
-        //int enemyCount = (int) Mathf.Log(level, 2f);
-		//int enemyCount = 0;
-        //LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 		SetupItems(level);
-
-		/*
-		GameObject hero1 = Instantiate(heroTiles[0], new Vector3(1, 8, 0f), Quaternion.identity);
-		hero1.GetComponent<Hero> ().orientation = new Vector3 (0, 1, 0f);
-
-		GameObject hero2 = Instantiate(heroTiles[0], new Vector3(12, 16, 0f), Quaternion.identity);
-		hero2.GetComponent<Hero> ().orientation = new Vector3 (0, -1, 0f);
-
-		GameObject hero3 = Instantiate(heroTiles[0], new Vector3(18, 4, 0f), Quaternion.identity);
-		hero3.GetComponent<Hero> ().orientation = new Vector3 (-1, 0, 0f);
-
-		GameObject plug1 = Instantiate(plugPrefab, new Vector3(12, 12, 0f), Quaternion.identity);
-		plug1.GetComponent<Plug>().SetType ("Berserker");
-
-		GameObject plug2 = Instantiate(plugPrefab, new Vector3(3, 9, 0f), Quaternion.identity);
-		plug2.GetComponent<Plug>().SetType ("Love");
-
-		plug1.transform.SetParent(boardHolder);
-		plug2.transform.SetParent(boardHolder);
-		*/
-
-
     }
 
 	public void SetupItems(int level)

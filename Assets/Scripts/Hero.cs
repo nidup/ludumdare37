@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Hero : MovingObject {
 
-	public int playerDamage ;
-
 	public Vector3 orientation;
 
 	private Transform target;
