@@ -3,7 +3,7 @@
 Small dungeon game rushly developed #uglyCodeAndBugsInside by grena and nidup for the Ludum Dare 37.
 [Here is the LDJAM submission](http://ludumdare.com/compo/ludum-dare-37/?action=preview&uid=125391)
 
-[PLAY IT HERE \o/](https://nidup.github.io/ludumdare37/Build/WebGL/) 
+[PLAY IT HERE \o/](https://grena.itch.io/paul-terguei-glory-room-keeper) 
 _(The game can be **long to load**, as it downloads the whole internet. Thanks for your patience.)_
 
 ## Screenshots
